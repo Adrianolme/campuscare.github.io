@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CampusCare Lab: reporte inteligente con dictado por voz, clasificación automática y mapa de calor del campus.">
+  <title>CampusCare Lab | Innovación</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f5132">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ CABECERA ============ -->
+<header class="cabecera" id="inicio">
+  <div class="contenedor">
+    <a class="marca" href="index.html">
+      <img src="img/logo.png" alt="Logotipo de CampusCare">
+      <span>CampusCare</span>
+    </a>
+    <button class="hamburguesa" id="btn-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html">← Inicio</a></li>
+        <li><a href="#como">Cómo funciona</a></li>
+        <li><a href="#sensores">Sensores IoT</a></li>
+        <li><a href="#reporte">Reporte por voz</a></li>
+        <li><a href="#tickets">Despacho</a></li>
+        <li><a href="#prediccion">Predicción</a></li>
+        <li><a href="#impacto">Impacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero hero-lab" aria-labelledby="titulo-lab">
+    <div class="contenedor">
+      <div>
+        <span class="etiqueta">Propuesta de innovación · CampusCare Lab</span>
+        <h1 id="titulo-lab">Un campus que se reporta solo</h1>
+        <p>Hoy alguien tiene que darse cuenta de la falla, avisar y esperar semanas. Con <strong>CampusCare Lab</strong>, los <strong>sensores IoT</strong> detectan el problema, el sistema <strong>asigna al técnico ideal</strong> y la <strong>predicción</strong> avisa dónde va a fallar la próxima vez.</p>
+        <p><a class="boton" href="#sensores">Ver la demo en vivo</a> <a class="boton boton-out" href="#impacto">Ver el impacto</a></p>
+      </div>
+      <ol class="lista-ideas">
+        <li>📡 <strong>Detecta</strong> con sensores o voz</li>
+        <li>🧠 <strong>Clasifica</strong> la severidad</li>
+        <li>🧑‍🔧 <strong>Asigna</strong> al técnico ideal</li>
+        <li>🔮 <strong>Predice</strong> la próxima falla</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ CÓMO FUNCIONA ============ -->
+  <section id="como" aria-labelledby="titulo-como">
+    <div class="contenedor">
+      <h2 id="titulo-como">¿Cómo funciona?</h2>
+      <p class="subtitulo">Del problema a la solución en cuatro pasos, casi sin intervención humana. Abajo puedes probar cada uno.</p>
+      <ol class="pasos">
+        <li><span class="num">1</span><h3>📡 Detectar</h3><p>Sensores de energía, agua y temperatura —o un reporte por voz— avisan de la falla al instante.</p></li>
+        <li><span class="num">2</span><h3>🧠 Clasificar</h3><p>El sistema entiende el problema: categoría, severidad y tiempo de atención esperado.</p></li>
+        <li><span class="num">3</span><h3>🧑‍🔧 Asignar</h3><p>Elige al técnico según su especialidad, su cercanía y su carga de trabajo.</p></li>
+        <li><span class="num">4</span><h3>🔮 Predecir</h3><p>Con el historial detecta las zonas con más riesgo y recomienda mantenimiento preventivo.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ SENSORES IoT ============ -->
+  <section id="sensores" aria-labelledby="titulo-sensores">
+    <div class="contenedor">
+      <h2 id="titulo-sensores">1. Gemelo digital con sensores IoT</h2>
+      <p class="subtitulo">Simulación en vivo: cada edificio tiene sensores de ⚡ energía, 💧 agua y 🌡️ temperatura. Si una lectura pasa su límite, CampusCare <strong>crea el reporte solo</strong> y asigna un técnico. Provoca una falla y míralo en acción.</p>
+      <div class="twin">
+        <div>
+          <canvas id="twin-canvas" width="800" height="450" role="img" aria-label="Gemelo digital del campus con lecturas de sensores por edificio"></canvas>
+          <p class="acciones">
+            <label for="twin-zona">Zona:</label>
+            <select id="twin-zona"></select>
+            <button class="boton boton-sec" type="button" data-tipo="energia">⚡ Provocar pico eléctrico</button>
+            <button class="boton boton-sec" type="button" data-tipo="agua">💧 Provocar fuga</button>
+            <button class="boton boton-sec" type="button" data-tipo="temp">🌡️ Provocar sobrecalentamiento</button>
+          </p>
+          <label class="check"><input type="checkbox" id="twin-auto"> Modo automático (fallas aleatorias)</label>
+        </div>
+        <aside class="twin-lado">
+          <h3>📈 Lecturas: <span id="twin-nombre"></span></h3>
+          <canvas id="spark" width="400" height="200" role="img" aria-label="Gráfica de lecturas frente al límite de cada sensor"></canvas>
+          <p class="nota">La línea roja punteada es el límite: al cruzarla se abre un ticket.</p>
+          <output id="twin-lect"></output>
+          <h3>🛰️ Eventos en vivo</h3>
+          <ol id="twin-feed" class="feed" aria-live="polite"></ol>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REPORTE INTELIGENTE ============ -->
+  <section id="reporte" aria-labelledby="titulo-reporte">
+    <div class="contenedor">
+      <h2 id="titulo-reporte">2. Reporte inteligente por voz</h2>
+      <p class="subtitulo">Describe la falla como se lo dirías a un compañero. Ejemplo: <em>"En el aula 4 hay un cable expuesto y salió una chispa del contacto"</em>.</p>
+
+      <div class="panel-doble">
+        <form id="form-reporte" novalidate>
+          <fieldset>
+            <legend>Nuevo reporte</legend>
+
+            <p>
+              <label for="descripcion">¿Qué pasó?</label>
+              <textarea id="descripcion" name="descripcion" rows="4" required minlength="10" placeholder="Escribe o dicta la falla..."></textarea>
+            </p>
+
+            <p class="acciones">
+              <button class="boton boton-sec" type="button" id="btn-voz">🎤 Dictar por voz</button>
+              <button class="boton boton-sec" type="button" id="btn-ubicacion">📍 Usar mi ubicación</button>
+            </p>
+            <p class="nota" id="msg-extra" aria-live="polite"></p>
+
+            <p>
+              <label for="edificio">Edificio o zona</label>
+              <select id="edificio" name="edificio" required>
+                <option value="">Selecciona...</option>
+                <option value="edA">Edificio A</option>
+                <option value="edB">Edificio B</option>
+                <option value="edC">Edificio C</option>
+                <option value="labs">Laboratorios</option>
+                <option value="bib">Biblioteca</option>
+                <option value="caf">Cafetería</option>
+              </select>
+            </p>
+
+            <p>
+              <label for="espacio">Espacio (aula, baño, pasillo...)</label>
+              <input type="text" id="espacio" name="espacio" placeholder="Ej. Aula 4" maxlength="40">
+            </p>
+
+            <p>
+              <label for="foto">Foto de la falla (opcional)</label>
+              <input type="file" id="foto" name="foto" accept="image/*" capture="environment">
+            </p>
+            <figure id="vista-foto" hidden>
+              <img id="miniatura" alt="Vista previa de la foto de la falla" width="160">
+              <figcaption>Vista previa</figcaption>
+            </figure>
+          </fieldset>
+
+          <button class="boton" type="submit">Enviar reporte</button>
+        </form>
+
+        <aside class="analisis" aria-labelledby="titulo-analisis">
+          <h3 id="titulo-analisis">🧠 Análisis en vivo</h3>
+          <output id="analisis" aria-live="polite">
+            <p class="nota">Empieza a escribir y CampusCare clasificará tu reporte automáticamente.</p>
+          </output>
+
+          <article id="resultado" class="resultado" hidden aria-live="polite"></article>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MAPA DE CALOR ============ -->
+  <section id="mapa" aria-labelledby="titulo-mapa">
+    <div class="contenedor">
+      <h2 id="titulo-mapa">3. Mapa de calor de reportes</h2>
+      <p class="subtitulo">Aquí se ve lo que <strong>las personas</strong> reportan (arriba, lo que detectan los sensores). Cada reporte suma "calor" según su severidad, para saber dónde intervenir primero. Pasa el cursor (o toca) un edificio para ver su detalle.</p>
+
+      <p>
+        <label class="check"><input type="checkbox" id="chk-ejemplo" checked> Incluir datos de ejemplo</label>
+      </p>
+
+      <canvas id="mapa-canvas" width="800" height="450" role="img" aria-label="Mapa de calor del campus con seis zonas: edificios A, B, C, laboratorios, biblioteca y cafetería"></canvas>
+      <p><output id="mapa-info" aria-live="polite">Selecciona una zona del mapa.</output></p>
+
+      <ul class="leyenda" aria-label="Leyenda del mapa">
+        <li><span class="punto" style="background:#22c55e"></span> Bajo</li>
+        <li><span class="punto" style="background:#facc15"></span> Medio</li>
+        <li><span class="punto" style="background:#f97316"></span> Alto</li>
+        <li><span class="punto" style="background:#dc2626"></span> Crítico</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ MIS REPORTES ============ -->
+  <section id="tickets" aria-labelledby="titulo-tickets">
+    <div class="contenedor">
+      <h2 id="titulo-tickets">4. Despacho inteligente y seguimiento</h2>
+      <p class="subtitulo">Cada ticket —de una persona o de un sensor— se asigna solo al técnico con mejor puntaje (especialidad, cercanía y carga). Avanza el estado como lo haría el técnico. Se guarda en este navegador.</p>
+
+      <div class="kpis-lab">
+        <div><strong id="k-total">0</strong><span>Reportes</span></div>
+        <div><strong id="k-abiertos">0</strong><span>Sin resolver</span></div>
+        <div><strong id="k-criticos">0</strong><span>Críticos</span></div>
+      </div>
+
+      <p class="acciones">
+        <button class="boton boton-sec" type="button" id="btn-notif">🔔 Activar notificaciones</button>
+        <button class="boton boton-sec" type="button" id="btn-borrar">🗑️ Borrar mis reportes</button>
+      </p>
+
+      <div id="lista-tickets" class="lista-tickets"></div>
+      <p id="sin-tickets" class="nota">Aún no has enviado reportes. Crea el primero arriba.</p>
+    </div>
+  </section>
+
+  <!-- ============ PREDICCIÓN ============ -->
+  <section id="prediccion" aria-labelledby="titulo-pred">
+    <div class="contenedor">
+      <h2 id="titulo-pred">5. Mantenimiento predictivo</h2>
+      <p class="subtitulo">Con el historial de incidencias (datos simulados), CampusCare calcula una tendencia, proyecta las próximas semanas y ordena las zonas por <strong>riesgo</strong>. Los reportes y alertas nuevos también suben el riesgo.</p>
+      <div class="panel-doble">
+        <div>
+          <p><label for="pred-zona">Historial de la zona</label><select id="pred-zona"></select></p>
+          <canvas id="pred-canvas" width="600" height="320" role="img" aria-label="Incidencias por semana y proyección de las siguientes dos semanas"></canvas>
+          <p class="nota">Barras verdes: incidencias reales por semana. Barras rojas punteadas: proyección. Línea: tendencia.</p>
+        </div>
+        <div>
+          <h3>🔮 Ranking de riesgo</h3>
+          <ol id="pred-rank" class="rank"></ol>
+          <p id="pred-reco" class="resultado"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMPACTO ============ -->
+  <section id="impacto" aria-labelledby="titulo-impacto">
+    <div class="contenedor">
+      <h2 id="titulo-impacto">6. Impacto estimado</h2>
+      <p class="subtitulo">Mueve los controles con los números de tu campus. Es una estimación con supuestos editables, no un dato medido.</p>
+      <div class="panel-doble">
+        <form class="calc" onsubmit="return false">
+          <p><label for="c-rep">Reportes al mes: <strong id="c-rep-v"></strong></label><input type="range" id="c-rep" min="20" max="500" step="10" value="120"></p>
+          <p><label for="c-act">Horas de respuesta hoy: <strong id="c-act-v"></strong> h</label><input type="range" id="c-act" min="24" max="240" step="6" value="96"></p>
+          <p><label for="c-meta">Meta con CampusCare: <strong id="c-meta-v"></strong> h</label><input type="range" id="c-meta" min="2" max="48" step="2" value="12"></p>
+          <p><label for="c-costo">Costo por hora de falla sin atender (MXN): <strong id="c-costo-v"></strong></label><input type="range" id="c-costo" min="1" max="50" step="1" value="10"></p>
+        </form>
+        <div>
+          <div class="barras">
+            <p>Hoy <span id="t-hoy"></span></p><div class="barra"><div class="rell rojo" id="bar-hoy"></div></div>
+            <p>Con CampusCare <span id="t-lab"></span></p><div class="barra"><div class="rell verde" id="bar-lab"></div></div>
+          </div>
+          <div class="kpis-lab">
+            <div><strong id="c-red">0%</strong><span>Menos espera</span></div>
+            <div><strong id="c-horas">0</strong><span>Horas de falla evitadas al mes</span></div>
+            <div><strong id="c-ahorro">$0</strong><span>Ahorro estimado al mes</span></div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:2.5rem;color:var(--verde)">Ruta de implementación</h3>
+      <ol class="roadmap">
+        <li><strong>Fase 1</strong><span>App móvil con reporte por QR, foto y voz.</span></li>
+        <li><strong>Fase 2</strong><span>Sensores de bajo costo (energía, agua, temperatura) en edificios piloto.</span></li>
+        <li><strong>Fase 3</strong><span>Predicción con datos reales y asignación automática de técnicos.</span></li>
+        <li><strong>Fase 4</strong><span>Integración con los sistemas escolares (ERP/SICE) y toda la red de campus.</span></li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<p id="aviso" class="aviso" role="status" aria-live="polite" hidden></p>
+
+<!-- ============ PIE DE PÁGINA ============ -->
+<footer class="pie">
+  <div class="contenedor">
+    <div>
+      <h3>CampusCare Lab</h3>
+      <p>Prototipo de innovación: reporte por voz, clasificación automática y mapa de calor.</p>
+    </div>
+    <div>
+      <h3>Equipo</h3>
+      <ul>
+        <li>Aldo Misael Leal Palafox</li>
+        <li>Carlos Manuel Ojeda Hernandez</li>
+        <li>Roger Alexis Atenco Guerrero</li>
+        <li>Adrian Olmedo Arango</li>
+      </ul>
+    </div>
+    <aside>
+      <h3>Enlaces</h3>
+      <ul>
+        <li><a href="index.html">Página principal</a></li>
+        <li><a href="#reporte">Reporte inteligente</a></li>
+        <li><a href="#mapa">Mapa de calor</a></li>
+        <li><a href="#inicio">Volver arriba ↑</a></li>
+      </ul>
+    </aside>
+    <small>&copy; <time datetime="2026">2026</time> CampusCare. Proyecto escolar. Todos los derechos reservados.</small>
+  </div>
+</footer>
+
+<script src="js/menu.js" defer></script>
+<script src="js/sw-registro.js" defer></script>
+<script src="js/innovacion.js" defer></script>
+<script src="js/lab.js" defer></script>
+</body>
+</html>

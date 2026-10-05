@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CampusCare: plataforma móvil de reporte y gestión de mantenimiento universitario.">
+  <meta name="author" content="Aldo Misael Leal Palafox, Carlos Manuel Ojeda Hernandez, Roger Alexis Atenco Guerrero, Adrian Olmedo Arango">
+  <title>CampusCare | Gestión de mantenimiento universitario</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f5132">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ CABECERA ============ -->
+<header class="cabecera" id="inicio">
+  <div class="contenedor">
+    <a class="marca" href="#inicio">
+      <img src="img/logo.png" alt="Logotipo de CampusCare">
+      <span>CampusCare</span>
+    </a>
+    <button class="hamburguesa" id="btn-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Navegación principal">
+      <ul>
+        <li><a href="#problema">Problema</a></li>
+        <li><a href="#app">La app</a></li>
+        <li><a href="#prototipo">Prototipo</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#modelo">Modelo</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="innovacion.html">✨ Innovación</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="titulo-hero">
+    <div class="contenedor">
+      <div>
+        <span class="etiqueta">Propuesta técnica · Prototipo de diseño</span>
+        <h1 id="titulo-hero">Reporta, atiende y resuelve las fallas de tu campus</h1>
+        <p>CampusCare conecta a estudiantes, docentes, personal técnico y administración en un solo flujo, desde la detección de una falla hasta su resolución <strong>con evidencia</strong>.</p>
+        <p><a class="boton" href="#app">Conoce la app</a> <a class="boton" href="innovacion.html" style="background:transparent;color:#fff;border:2px solid var(--lima)">✨ Probar CampusCare Lab</a></p>
+      </div>
+      <figure>
+        <img src="img/app-login.png" alt="Pantalla de inicio de sesión de la app CampusCare" width="389" height="771">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEMA ============ -->
+  <section id="problema" aria-labelledby="titulo-problema">
+    <div class="contenedor">
+      <h2 id="titulo-problema">El problema en el campus</h2>
+      <p class="subtitulo">El deterioro de la infraestructura física —luminarias fundidas, contactos sin corriente, proyectores descalibrados, fugas o butacas rotas— afecta el aprovechamiento académico y la seguridad de la comunidad.</p>
+
+      <div class="dos-col">
+        <figure>
+          <picture>
+            <source media="(min-width: 800px)" srcset="img/aula.jpg">
+            <img src="img/aula.jpg" alt="Aula universitaria con pizarrón y butacas" loading="lazy">
+          </picture>
+          <figcaption>Un aula en mal estado afecta a toda la comunidad.</figcaption>
+        </figure>
+        <div>
+          <blockquote>
+            <strong>¿Por qué ahora?</strong> Semanas de espera para reparar una falla eléctrica crítica son un riesgo de seguridad y una fuga constante de recursos institucionales.
+          </blockquote>
+          <ul>
+            <li><strong>Canales informales y dispersos:</strong> reportes verbales, correos aislados o bitácoras en papel que se extravían.</li>
+            <li><strong>Falta de trazabilidad y métricas:</strong> no hay datos centralizados de tiempo de reparación, zonas críticas ni refacciones.</li>
+            <li><strong>Desconexión con el usuario:</strong> quien reporta no sabe si su incidencia fue atendida.</li>
+          </ul>
+          <p>Meta: pasar de <mark>semanas a horas</mark> en el tiempo de respuesta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LA APP ============ -->
+  <section id="app" aria-labelledby="titulo-app">
+    <div class="contenedor">
+      <h2 id="titulo-app">¿Qué es CampusCare?</h2>
+      <p class="subtitulo">Plataforma de reporte y gestión de mantenimiento universitario. Tres tipos de usuario, un solo flujo.</p>
+
+      <div class="rejilla">
+        <article class="tarjeta rol">
+          <img src="img/alumnos.jpg" alt="Alumnos en clase" loading="lazy">
+          <h3>Alumnado y docentes</h3>
+          <p>Reportan fallas desde el aula en segundos.</p>
+        </article>
+        <article class="tarjeta rol">
+          <img src="img/mantenimiento.jpg" alt="Técnico de mantenimiento trabajando" loading="lazy">
+          <h3>Personal de mantenimiento</h3>
+          <p>Reciben, resuelven y documentan órdenes de trabajo.</p>
+        </article>
+        <article class="tarjeta rol">
+          <img src="img/administracion.jpg" alt="Equipo administrativo en oficina" loading="lazy">
+          <h3>Administración</h3>
+          <p>Da seguimiento y mide el desempeño.</p>
+        </article>
+      </div>
+
+      <h3 style="margin-top:2.5rem;color:var(--verde)">Funcionalidades clave</h3>
+      <div class="rejilla">
+        <article class="tarjeta"><img class="icono" src="img/icono-estudiante.png" alt="" loading="lazy"><h3>Acceso institucional</h3><p>Login con cuenta institucional y roles: alumno/docente, técnico y administrador.</p></article>
+        <article class="tarjeta"><img class="icono" src="img/icono-checklist.png" alt="" loading="lazy"><h3>Reporte con evidencia</h3><p>Escaneo de QR/NFC del aula, foto de la falla, categoría y severidad.</p></article>
+        <article class="tarjeta"><img class="icono" src="img/icono-red.png" alt="" loading="lazy"><h3>Ciclo de vida del ticket</h3><p>Abierto → Asignado → En proceso → Resuelto → Cerrado, con historial completo.</p></article>
+        <article class="tarjeta"><img class="icono" src="img/icono-titulacion.png" alt="" loading="lazy"><h3>Cierre con evidencia</h3><p>El técnico documenta la reparación con foto y notas antes de resolver.</p></article>
+        <article class="tarjeta"><img class="icono" src="img/icono-web.png" alt="" loading="lazy"><h3>Notificaciones push</h3><p>El solicitante se entera en tiempo real de cada cambio de estado.</p></article>
+        <article class="tarjeta"><img class="icono" src="img/icono-checklist.png" alt="" loading="lazy"><h3>Dashboard y mapa de calor</h3><p>Estadísticas, tiempos de atención y zonas con más incidencias.</p></article>
+      </div>
+
+      <h3 style="margin-top:2.5rem;color:var(--verde)">Estados de un reporte</h3>
+      <ol class="estados">
+        <li>Abierto</li><li>Asignado</li><li>En proceso</li><li>Resuelto</li><li>Cerrado</li>
+      </ol>
+
+      <div class="tabla-scroll">
+        <table>
+          <caption>Arquitectura en breve</caption>
+          <thead>
+            <tr><th scope="col">Capa</th><th scope="col">Tecnología</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">App móvil</th><td>Android · Kotlin, Jetpack Compose, MVVM, CameraX, Room</td></tr>
+            <tr><th scope="row">API REST (Backend)</th><td>ASP.NET Core / Node.js · JWT · HTTPS</td></tr>
+            <tr><th scope="row">Base de datos</th><td>MySQL / PostgreSQL, esquema normalizado</td></tr>
+            <tr><th scope="row">Almacenamiento</th><td>Bucket en la nube para evidencia fotográfica</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ODS ============ -->
+  <section id="ods" aria-labelledby="titulo-ods">
+    <div class="contenedor">
+      <h2 id="titulo-ods">Alineación con los ODS</h2>
+      <p class="subtitulo">CampusCare contribuye a tres Objetivos de Desarrollo Sostenible.</p>
+      <div class="rejilla">
+        <article class="tarjeta"><h3>ODS 9 · Industria, innovación e infraestructura</h3><p><em>Meta 9.4.</em> Moderniza la gestión operativa de los edificios universitarios mediante tecnología móvil y digitalización de procesos.</p></article>
+        <article class="tarjeta"><h3>ODS 11 · Ciudades y comunidades sostenibles</h3><p><em>Meta 11.6.</em> Facilita la detección inmediata de fugas de agua y consumos eléctricos anómalos para reducir el desperdicio de recursos.</p></article>
+        <article class="tarjeta"><h3>ODS 12 · Producción y consumo responsables</h3><p>Optimiza el ciclo de vida del mobiliario y equipo mediante mantenimiento preventivo y correctivo oportuno.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROTOTIPO ============ -->
+  <section id="prototipo" aria-labelledby="titulo-prototipo">
+    <div class="contenedor">
+      <h2 id="titulo-prototipo">Prototipo de diseño</h2>
+      <p class="subtitulo">Recorrido visual por las pantallas de la app.</p>
+
+      <h3>1. Acceso y creación de reportes</h3>
+      <div class="pantallas">
+        <figure><img src="img/app-login.png" alt="Pantalla de inicio de sesión" loading="lazy"><figcaption>Inicio de sesión</figcaption></figure>
+        <figure><img src="img/app-nuevo-reporte.png" alt="Formulario de nuevo reporte con escaneo de QR" loading="lazy"><figcaption>Nuevo reporte — QR y formulario</figcaption></figure>
+      </div>
+
+      <h3 style="margin-top:2rem">2. Seguimiento y atención técnica</h3>
+      <div class="pantallas">
+        <figure><img src="img/app-detalle-ticket.png" alt="Detalle del ticket TCK-2026-0042" loading="lazy"><figcaption>Detalle del ticket</figcaption></figure>
+        <figure><img src="img/app-seguimiento.png" alt="Línea de tiempo del ticket" loading="lazy"><figcaption>Línea de tiempo</figcaption></figure>
+        <figure><img src="img/app-cierre.png" alt="Evidencia de cierre y calificación" loading="lazy"><figcaption>Cierre con evidencia</figcaption></figure>
+        <figure><img src="img/app-calificacion.png" alt="Ticket cerrado con calificación de cuatro estrellas" loading="lazy"><figcaption>Calificación del servicio</figcaption></figure>
+      </div>
+
+      <h3 style="margin-top:2rem">3. Panel administrativo</h3>
+      <div class="pantallas">
+        <figure><img src="img/app-dashboard.png" alt="Dashboard con KPIs y mapa de calor" loading="lazy"><figcaption>KPIs y mapa de calor</figcaption></figure>
+        <figure><img src="img/app-zonas.png" alt="Ranking de zonas con fallas recurrentes" loading="lazy"><figcaption>Zonas recurrentes</figcaption></figure>
+        <figure><img src="img/app-asignar.png" alt="Pendientes de asignar a técnico" loading="lazy"><figcaption>Triaje y asignación</figcaption></figure>
+      </div>
+
+      <h3 style="margin-top:2rem">Indicadores del prototipo</h3>
+      <div class="rejilla">
+        <div class="kpi">
+          <label for="sla">Cumplimiento SLA: <span>87%</span></label>
+          <meter id="sla" min="0" max="100" low="60" high="80" optimum="100" value="87">87%</meter>
+        </div>
+        <div class="kpi">
+          <label for="mttr">Tiempo medio de reparación (MTTR): <span>6.4 h</span></label>
+          <progress id="mttr" max="48" value="6.4">6.4 h</progress>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIDEO ============ -->
+  <section id="video" aria-labelledby="titulo-video">
+    <div class="contenedor video-caja">
+      <h2 id="titulo-video">Video del proyecto</h2>
+      <p class="subtitulo">Demostración de CampusCare. Coloca tu archivo en <code>video/campuscare.mp4</code>.</p>
+      <video controls preload="metadata" poster="img/aula.jpg" width="860">
+        <source src="video/campuscare.mp4" type="video/mp4">
+        <source src="video/campuscare.webm" type="video/webm">
+        <track kind="subtitles" src="video/subtitulos.vtt" srclang="es" label="Español" default>
+        Tu navegador no soporta la etiqueta de video.
+      </video>
+      <p><label for="audio">Presentación en audio (opcional):</label></p>
+      <audio id="audio" controls preload="none">
+        <source src="video/presentacion.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML5.
+      </audio>
+    </div>
+  </section>
+
+  <!-- ============ MODELO DE NEGOCIO ============ -->
+  <section id="modelo" aria-labelledby="titulo-modelo">
+    <div class="contenedor">
+      <h2 id="titulo-modelo">Modelo de negocio</h2>
+      <p class="subtitulo">Resumen del Project Vision Board / Modelo Canvas.</p>
+      <div class="tabla-scroll">
+        <table>
+          <caption>Bloques principales del modelo</caption>
+          <thead><tr><th scope="col">Bloque</th><th scope="col">Descripción</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Segmento de clientes</th><td>Universidades e institutos, direcciones de carrera, áreas administrativas y de mantenimiento.</td></tr>
+            <tr><th scope="row">Propuesta de valor</th><td>Reporte rápido con evidencia, trazabilidad completa y métricas para decidir mejor.</td></tr>
+            <tr><th scope="row">Canales</th><td>Instaladores APK, tiendas de aplicaciones, portal universitario y talleres de inducción.</td></tr>
+            <tr><th scope="row">Recursos clave</th><td>Código base, motor de reglas, desarrolladores, QA y asesores normativos.</td></tr>
+            <tr><th scope="row">Fuentes de ingresos</th><td>Licenciamiento institucional (B2B), personalización e integración, soporte y mantenimiento.</td></tr>
+            <tr><th scope="row">Estructura de costes</th><td>Desarrollo y soporte, infraestructura digital y capacitación.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:2rem;color:var(--verde)">Preguntas frecuentes</h3>
+      <details>
+        <summary>¿Cómo se crea un reporte?</summary>
+        <p>Se inicia sesión, se escanea el QR/NFC del espacio, se toma una foto de la falla y se elige categoría y severidad. La app genera un folio de seguimiento.</p>
+      </details>
+      <details>
+        <summary>¿Cómo sé si ya atendieron mi reporte?</summary>
+        <p>Recibes notificaciones push con cada cambio de estado del ticket y puedes ver la línea de tiempo en la app.</p>
+      </details>
+      <details>
+        <summary>¿Qué ve la administración?</summary>
+        <p>Un dashboard con KPIs, mapa de calor por edificio, zonas recurrentes y la lista de pendientes por asignar.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section id="contacto" aria-labelledby="titulo-contacto">
+    <div class="contenedor">
+      <h2 id="titulo-contacto">Contacto</h2>
+      <p class="subtitulo">Cuéntanos qué te pareció CampusCare.</p>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Tus datos</legend>
+          <p><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" autocomplete="name"></p>
+          <p><label for="correo">Correo institucional</label><input type="email" id="correo" name="correo" required placeholder="alumno@universidad.edu.mx" autocomplete="email"></p>
+          <p><label for="rol">Soy</label>
+            <input list="roles" id="rol" name="rol" placeholder="Elige o escribe">
+            <datalist id="roles"><option value="Alumno"><option value="Docente"><option value="Personal de mantenimiento"><option value="Administrativo"></datalist>
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Tu opinión</legend>
+          <p><label for="fecha">Fecha de visita</label><input type="date" id="fecha" name="fecha"></p>
+          <p><label for="valor">Calificación (1 a 5)</label><input type="range" id="valor" name="valor" min="1" max="5" value="5"></p>
+          <p><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu comentario"></textarea></p>
+          <p><label><input type="checkbox" name="acepto" required> Acepto el aviso de privacidad</label></p>
+        </fieldset>
+        <button class="boton" type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PIE DE PÁGINA ============ -->
+<footer class="pie">
+  <div class="contenedor">
+    <div>
+      <h3>CampusCare</h3>
+      <p>Plataforma de reporte y gestión de mantenimiento universitario.</p>
+    </div>
+    <div>
+      <h3>Equipo</h3>
+      <ul>
+        <li>Aldo Misael Leal Palafox</li>
+        <li>Carlos Manuel Ojeda Hernandez</li>
+        <li>Roger Alexis Atenco Guerrero</li>
+        <li>Adrian Olmedo Arango</li>
+      </ul>
+    </div>
+    <aside>
+      <h3>Enlaces</h3>
+      <ul>
+        <li><a href="#problema">Problema</a></li>
+        <li><a href="#prototipo">Prototipo</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#inicio">Volver arriba ↑</a></li>
+      </ul>
+    </aside>
+    <address>
+      <h3>Contacto</h3>
+      <a href="mailto:contacto@campuscare.mx">contacto@campuscare.mx</a>
+    </address>
+    <small>&copy; <time datetime="2026">2026</time> CampusCare. Proyecto escolar. Todos los derechos reservados.</small>
+  </div>
+</footer>
+
+<script src="js/menu.js" defer></script>
+<script src="js/sw-registro.js" defer></script>
+
+</body>
+</html>

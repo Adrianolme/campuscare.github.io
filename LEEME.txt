@@ -1,0 +1,11 @@
+CampusCare - como abrir el sitio
+--------------------------------
+NO abras index.html con doble clic si quieres probar el manifest (manifest.json),
+porque con file:/// el navegador lo bloquea (NetworkError).
+
+Usa un servidor local:
+  - Doble clic en iniciar-servidor.bat  (requiere Python o Node) y abre http://localhost:8080
+  - o VS Code: extension "Live Server" > clic derecho en index.html > Open with Live Server
+  - o en la carpeta: npx serve .
+
+Video: coloca tu archivo en video/campuscare.mp4
